@@ -66,6 +66,7 @@ function update() {
     requestAnimationFrame(update);
 
     context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
+    
 }
 
 function placeCactus(){
@@ -78,6 +79,20 @@ function placeCactus(){
         height: cactusHeight
     }
 
-    let placeCactusChance = Math.random();
+    let placeCactusChance = Math.random(); //gives number 0 to 0.9999...
+
+    if (placeCactusChance > 0.90) {
+        cactus.img = cactus3Img;
+        cactus.width = cactus.cactus3Width;
+        cactusArray.push(cactus);
+    } else if (placeCactusChance > 0.70){
+        cactus.img = cactus2Img;
+        cactus.width = cactus.cactus2Width;
+        cactusArray.push(cactus);
+    } else if (placeCactusChance > 0.50) {
+        cactus.img = cactus1Img;
+        cactus.width = cactus.cactus1Width;
+        cactusArray.push(cactus);
+    }
 
 }
